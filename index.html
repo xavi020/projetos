@@ -3,15 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrinho de Compras</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Innovation Class</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Carrinho de Compras</h1>
-    <div id="produtos"></div>
-    <button id="adicionarProduto">Adicionar Produto</button>
-    <button id="finalizarCompra">Finalizar Compra</button>
-    <div id="resultado"></div>
+    <header>
+        <h1>Innovation Class</h1>
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Digite sua busca...">
+            <button id="search-button">🔍</button>
+        </div>
+        <p id="search-result"></p>
+    </header>
+    
+    <section class="carousel">
+        <button class="prev">⬅</button>
+        <div class="carousel-track">
+            <div class="carousel-item">Item 1</div>
+            <div class="carousel-item">Item 2</div>
+            <div class="carousel-item">Item 3</div>
+        </div>
+        <button class="next">➡</button>
+    </section>
+
     <script src="script.js"></script>
 </body>
 </html>
