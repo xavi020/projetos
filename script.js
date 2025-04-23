@@ -1,24 +1,31 @@
-document.getElementById("search-button").addEventListener("click", function() {
-    let searchInput = document.getElementById("search-input").value;
-    document.getElementById("search-result").innerText = "Você buscou por: '" + searchInput + "'";
-});
+// Carrega o áudio uma vez, já apontando pro arquivo certo
+const furiadaAudio = new Audio("assets/audios/furiada.mp3");
 
-let index = 0;
-const track = document.querySelector(".carousel-track");
-const items = document.querySelectorAll(".carousel-item");
-const prev = document.querySelector(".prev");
-const next = document.querySelector(".next");
+function sendMessage() {
+  const input = document.getElementById("userInput");
+  const msg = input.value.trim();
+  if (!msg) return;
 
-function updateCarousel() {
-    track.style.transform = `translateX(${-index * 210}px)`;
+  addMessage("Você", msg);
+  botResponse(msg.toLowerCase());
+  input.value = "";
 }
 
-prev.addEventListener("click", function() {
-    if (index > 0) index--;
-    updateCarousel();
-});
+function addMessage(sender, text) {
+  const chat = document.getElementById("chat-box");
+  chat.innerHTML += `<p><strong>${sender}:</strong> ${text}</p>`;
+  chat.scrollTop = chat.scrollHeight;
+}
 
-next.addEventListener("click", function() {
-    if (index < items.length - 1) index++;
-    updateCarousel();
-});
+function botResponse(msg) {
+  if (msg.includes("jogo")) {
+    addMessage("FURIA Bot", "Próximo jogo: 25/04 - FURIA vs NAVI às 15h (BLAST Premier)");
+  } else if (msg.includes("furiada")) {
+    addMessage("FURIA Bot", "🔥 É FURIADA PRA CIMA DELES 🔥");
+    furiadaAudio.play(); // <- aqui toca o áudio corretamente
+  } else if (msg.includes("história")) {
+    addMessage("FURIA Bot", "A FURIA começou em 2017 e logo se tornou um dos maiores times de CS das Américas...");
+  } else {
+    addMessage("FURIA Bot", "Não entendi, mas tô na torcida com você! 🐆💥");
+  }
+}

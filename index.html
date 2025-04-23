@@ -1,31 +1,22 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Innovation Class</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <title>FURIA Fan Chatbot</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div class="chat-container">
     <header>
-        <h1>Innovation Class</h1>
-        <div class="search-container">
-            <input type="text" id="search-input" placeholder="Digite sua busca...">
-            <button id="search-button">🔍</button>
-        </div>
-        <p id="search-result"></p>
+      
+      <h1>Chat da FURIA</h1>
     </header>
-    
-    <section class="carousel">
-        <button class="prev">⬅</button>
-        <div class="carousel-track">
-            <div class="carousel-item">Item 1</div>
-            <div class="carousel-item">Item 2</div>
-            <div class="carousel-item">Item 3</div>
-        </div>
-        <button class="next">➡</button>
-    </section>
-
-    <script src="script.js"></script>
+    <div id="chat-box"></div>
+    <div class="input-area">
+      <input type="text" id="userInput" placeholder="Fala com a FURIA..." />
+      <button onclick="sendMessage()">Enviar</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
