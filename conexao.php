@@ -2,12 +2,10 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "barbearia_do_banco";
+$dbname = "barbearia_do_banco"; // Nome do banco de dados que você criou
 
-// Cria a conexão
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Checa a conexão
 if ($conn->connect_error) {
     die("Conexão falhou: " . $conn->connect_error);
 }

@@ -1,96 +1,138 @@
 body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(120deg, #f0f0f5 0%, #d4e7fe 100%);
-    color: #333;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: 0;
-    position: relative;
-    overflow: hidden;
+    background-image: url('corte.jpg'); /* Imagem de fundo */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
-
+body, html {
+    height: 100%;
+    margin: 0; /* Deixa sem margem para centralizar certinho */
+    padding: 0;
+    display: flex; /* FLEX para alinhar */
+    align-items: center; /* Alinha no eixo vertical */
+    justify-content: center; /* Alinha no eixo horizontal */
+    font-size: 16px;
+    line-height: 1.5;
+    font-weight: 400;
+    font-style: normal;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+/* Estilos para o contêiner do formulário */
+/* Estilos para o contêiner principal que envolve o conteúdo do formulário */
 .container {
-    background: rgba(255, 255, 255, 0.9);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
-    width: 90%;
-    max-width: 400px;
+    background: rgba(255, 255, 255, 0.95); /* Fundo branco semi-transparente */
+    padding: 30px 25px;
+    border-radius: 15px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 500px;
     text-align: center;
     z-index: 2;
+    box-sizing: border-box;
 }
 
+/* Estilos para os títulos */
 h1, h2 {
     color: #4a90e2;
-    position: relative;
+    margin-bottom: 20px;
 }
 
-.scissors {
-    font-size: 1.2em;
-    vertical-align: middle;
-}
 
+/* Estilos para os campos de input, select e button */
 input, select, button {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     margin: 10px 0;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box;
 }
 
+/* Estilos específicos para o botão */
 button {
     background-color: #4a90e2;
-    color: #fff;
+    color: white;
     cursor: pointer;
     border: none;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
+/* Estilos para o botão no hover */
 button:hover {
     background-color: #357ABD;
+    transform: scale(1.03);
 }
 
-#horariosDisponiveis ul, #horarios {
-    list-style-type: none;
-    padding: 0;
-    text-align: left;
+/* Estilos para o contêiner dos horários disponíveis */
+#horarios-disponiveis {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 10px;
+    margin: 15px 0;
 }
 
-#dias li, #horarios li {
-    background: #f0f0f5;
-    margin: 5px 0;
+/* Estilo base para cada horário */
+.horario {
     padding: 10px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 0.95rem;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    box-sizing: border-box;
+}
+
+/* Estilos para horários disponíveis */
+.horario.disponivel {
+    background-color: #ffffff;
+    color: #1d773f;
+}
+
+/* Estilos para hover dos horários disponíveis */
+.horario.disponivel:hover {
+    background-color: #d4e7fe;
+}
+
+/* Estilos para horários indisponíveis (já agendados) */
+.horario.indisponivel {
+    background-color: #ffcccc; /* Vermelho claro */
+    color: #888;
+    cursor: not-allowed;
+    /* Adicionar opacidade ou outro estilo para deixar mais claro que não pode ser clicado */
+    opacity: 0.7;
+}
+
+/* Estilos para horários selecionados */
+.horario.selecionado {
+    background-color: #4a90e2;
+    color: white;
+}
+
+/* Estilo para avisos de domingo (já existia) */
+.aviso-domingo {
+    color: #c0392b; /* Um vermelho para destaque */
+    font-weight: bold;
+    margin-top: 15px;
+    padding: 10px;
+    border: 1px solid #e74c3c;
     border-radius: 5px;
+    background-color: #fcecec;
 }
 
-/* Freestyle Shapes - Estilo de fundo */
-body::before {
-    content: "";
-    position: absolute;
-    width: 500px;
-    height: 500px;
-    background: rgba(74, 144, 226, 0.1);
-    top: -100px;
-    left: -100px;
-    border-radius: 50%;
-    z-index: 1;
-}
-
-body::after {
-    content: "";
-    position: absolute;
-    width: 300px;
-    height: 300px;
-    background: rgba(255, 194, 102, 0.1);
-    bottom: -100px;
-    right: -100px;
-    border-radius: 50%;
-    z-index: 1;
-}
-
-/* Oculta a agenda para a visualização do usuário regular */
-.hidden {
-    display: none;
+/* --- NOVO ESTILO: Para avisos de dias indisponíveis (domingo ou feriado) --- */
+.aviso-dia-indisponivel {
+    color: #c0392b; /* Um vermelho para destaque */
+    font-weight: bold;
+    margin-top: 15px;
+    padding: 10px;
+    border: 1px solid #e74c3c;
+    border-radius: 5px;
+    background-color: #fcecec;
+    text-align: center;
 }
